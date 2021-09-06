@@ -1,0 +1,18 @@
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+  }
+
+  .container {
+    flex-direction: row;
+    flex-wrap: nowrap
+  }
+
+  #div-cards{
+    padding-top: 1.5rem;
+  }
+
+.container-shopping-carr{
+  padding-top: 1rem;
+  text-align: right;
+}

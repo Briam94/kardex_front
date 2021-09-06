@@ -1,0 +1,44 @@
+<mat-toolbar class="nav" color="primary">
+  <mat-toolbar-row>
+      <div class="itemMenu1">
+          <div id="nombreUsuario" class="animated fadeIn">
+              <span> KARDEX </span>
+          </div>
+      </div>
+      <div class="itemMenu2">
+          <button mat-button class="itemMenu21" routerLinkActive="active" [routerLink]="'/productos'">
+                      <i id="home" class="fa fa-home" aria-hidden="true"></i>
+                      <span id="textProductos">HOME</span>
+                  </button>
+      </div>
+      <div class="itemMenu2">
+          <button mat-button class="itemMenu21" routerLinkActive="active" (click)="toogleShowOption('products')">
+                          <i id="home" class="fa fa-cube" aria-hidden="true"></i>
+                          <span id="textProductos">INVENTARIO</span>
+                      </button>
+      </div>
+      <div class="itemMenu2">
+          <button mat-button class="itemMenu21" routerLinkActive="active" (click)="toogleShowOption('shopping')">
+                              <i id="home" class="fa fa-cube" aria-hidden="true"></i>
+                              <span id="textProductos">COMPRAR</span>
+                          </button>
+      </div>
+      <div class="itemMenu3">
+              <button mat-button [matMenuTriggerFor]="user" class="itemMenu31">
+                  {{userName}}
+              </button>
+              <mat-menu #user="matMenu">
+                  <button mat-menu-item [routerLink]="'/'">Cerrar Sesión</button>
+              </mat-menu>
+          </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+  <div class="products" *ngIf="showProducts"  id="container-home">
+    <app-products></app-products>
+  </div>
+  <div class="products" *ngIf="showShopping">
+    <app-shopping></app-shopping>
+  </div>
+</div>

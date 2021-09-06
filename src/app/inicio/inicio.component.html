@@ -1,0 +1,34 @@
+<div class="contenedorEjemplo">
+  <mat-card class="example-card">
+    <mat-card-header>
+        <div class="title-card">
+            <mat-card-title class="title-card-text"><h2>SISTEMA KARDEX</h2></mat-card-title>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container">
+        <form [formGroup]="login" >
+          <mat-form-field class="mat-email-init-session" appearance="fill">
+            <mat-label>Correo</mat-label>
+            <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                   placeholder="correo@correo.com">
+            <mat-error *ngIf="login.controls.email.hasError('email') && !login.controls.email.hasError('required')">
+              Correo no valido
+            </mat-error>
+          </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" type="password">
+            </mat-form-field>
+        </form>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="buttons-action-init-session">
+      <button mat-raised-button color="primary" [disabled]="!login.controls.email.value || !login.controls.password.value" (click)="makeLogin()">Iniciar Sesion</button>
+      <button mat-raised-button id="btnInicio" (click)="openRegistUser()">
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+        <span>Registrar Usuario</span>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

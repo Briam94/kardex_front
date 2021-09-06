@@ -1,0 +1,32 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+.product-card{
+  width: 50%;
+} 
+.form-field-products{
+  padding: 2%;
+}
+
+.textarea-products{
+  width: 60%;
+}
+
+.title-card{
+  width: 100%;
+  text-align: -webkit-center;
+}
+
+.container-column{
+  padding-right: 5rem;
+}

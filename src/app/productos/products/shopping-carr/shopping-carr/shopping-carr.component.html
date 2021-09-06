@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Productos agregados</h5>
+      <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef class="table-shopping-car-titles">producto</th>
+              <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef class="table-shopping-car-titles"> cantidad </th>
+              <td mat-cell *matCellDef="let element"> {{element.productAmount}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef class="table-shopping-car-titles"> precio unitario </th>
+              <td mat-cell *matCellDef="let element"> {{element.productPrice | currency: 'COP'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="options">
+                <th mat-header-cell *matHeaderCellDef class="container-column">  </th>
+                <td mat-cell *matCellDef="let element" matTooltip="Retirar producto del carrito" matTooltipClass="example-tooltip-red"> <i class="fas fa-times" (click)="removeProduct(element)"></i> </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+          
+      </div>
+      <h3 class="text-card-price" >Precio total a pagar: {{totalPrice | currency: 'COP'}} </h3>
+      <button type="button" class="btn btn-primary" (click)="makeSale()" >Finalizar compra</button>
+      <button type="button" class="btn btn-secondary button-close-modal" (click)="closeModal()" >Cancelar</button>
+    </div>
+  </div>

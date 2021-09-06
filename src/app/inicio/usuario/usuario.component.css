@@ -1,0 +1,17 @@
+  .example-card {
+    max-width: 400px;
+    text-align: -webkit-center;
+  }
+
+  .title-card{
+    width: 75%;
+    text-align: -webkit-center;
+  }
+
+  .title-card-text{
+    font-size: x-large;
+  }
+  
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }

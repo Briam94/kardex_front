@@ -1,0 +1,20 @@
+<div class="container-shopping-carr">
+  <button type="button" class="btn btn-warning" (click)="modalShoppingCarr()" >Ver Carrito<i class="fas fa-shopping-cart"> {{counterProducts}} </i></button>
+</div>
+
+
+<div class="container">
+  <div class="card-deck mt-3"  id="div-cards">
+
+    <div class="card text-center border-info" *ngFor="let element of products ">
+      <div class="card-body">
+        <h4 class="card-title">{{element.producName}}</h4>
+        <h6 class="card-subtitle mb-4 text-muted">{{element.productPrice | currency: 'COP'}}</h6>
+        <p class="card-text">{{element.productDescription}} </p>
+        <button type="button" class="btn btn-primary" (click)="addProducts(element)" [disabled]="element.productStock <= 0" >Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

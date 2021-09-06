@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div class="title-card">
+            <mat-card-title class="title-card-text">Registrar nuevo usuario</mat-card-title>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="users" >
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Ingresa tu correo</mat-label>
+                <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
+                       placeholder="correo@correo.com">
+                <mat-error *ngIf="users.controls.email.hasError('email') && !users.controls.email.hasError('required')">
+                  Correo no valido
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill" >
+                <mat-label>Nombre de usuario</mat-label>
+                <input matInput formControlName="userName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" type="password">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Confirmar Contraseña</mat-label>
+                <input matInput formControlName="confirmPassword" type="password">
+            </mat-form-field>
+        </form>
+        </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="!users.controls.email.value || !users.controls.userName.value || !users.controls.password.value || !users.controls.confirmPassword.value || users.controls.email.hasError('email')" (click)="registUser()" >Registrar</button>
+      <button mat-raised-button (click)="cancel()">Cancelar</button>
+    </mat-card-actions>
+  </mat-card>
